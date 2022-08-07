@@ -35,11 +35,11 @@ class HealthCheck implements ShouldQueue
         try {
             Http::get("http://localhost:7001/oa");
         } catch (\Throwable $th) {
-            exec('C:\bea\user_projects\domains\oadomain\bin\startWebLogic.cmd');
-
             $hamkaran = new Hamkaran();
 
             $hamkaran->save();
+
+            exec('C:\bea\user_projects\domains\oadomain\bin\startWebLogic.cmd');
         }
     }
 }
